@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: SHAIKDEMO
+name: CI/CD_DEMO
 
 # Controls when the workflow will run
 on:
@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  Job1:
+  Build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -34,10 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
-  
-  Job2:
-    needs: Job1
+        
+  Test:
+    needs: Build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -50,9 +49,8 @@ jobs:
       - name: Run a one-line script
         run: echo welcome shaik
    
-   
-  Job3:
-    needs: Job2
+  Deploy:
+    needs: Test
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -63,5 +61,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo welcome demo of CICD
+        run: yum install httpd -y
   
