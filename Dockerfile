@@ -1,15 +1,5 @@
-# Use an official Apache HTTP server image as the base
+# Use the official Apache HTTP Server image from the Docker Hub
 FROM httpd:latest
 
-# Copy custom configuration file (optional)
-# COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
-
-# Expose port 80 to make the web server accessible
-EXPOSE 80
-
-# Copy website files to the default Apache web directory
-# Assuming you have an 'index.html' file in your current directory
+# Copy a custom 'index.html' into the Apache server's root directory for hosting
 COPY ./index.html /usr/local/apache2/htdocs/
-
-# Start the Apache HTTP server
-CMD ["httpd-foreground"]
