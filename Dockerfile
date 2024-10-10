@@ -1,16 +1,15 @@
-FROM python:3.12
-WORKDIR /usr/local/app
+# Use an official Apache HTTP server image as the base
+FROM httpd:latest
 
-# Install the application dependencies
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy custom configuration file (optional)
+# COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
 
-# Copy in the source code
-COPY src ./src
-EXPOSE 5000
+# Expose port 80 to make the web server accessible
+EXPOSE 80
 
-# Setup an app user so the container doesn't run as the root user
-RUN useradd app
-USER app
+# Copy website files to the default Apache web directory
+# Assuming you have an 'index.html' file in your current directory
+COPY ./index.html /usr/local/apache2/htdocs/
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Start the Apache HTTP server
+CMD ["httpd-foreground"]
