@@ -1,1 +1,1 @@
-From Ubuntu : latest
+FROM ubuntu : latest
