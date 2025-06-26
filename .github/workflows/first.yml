@@ -32,6 +32,5 @@ jobs:
             ls -la 
             docker build . -f Dockerfile -t demoimg999:latest
         - name: push the docker image
-          id: push-docker-image
           run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/demoimg999:latest
 
