@@ -33,4 +33,3 @@ jobs:
             docker build . -f Dockerfile -t demoimg999:latest
         - name: push the docker image
           run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/demo_june:latest
-
