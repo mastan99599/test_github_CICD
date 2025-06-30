@@ -33,7 +33,7 @@ jobs:
             docker build . -f Dockerfile -t demoimg999:latest
         - name: push the docker image
           run: |
-            docker push masthan9/demoimg999/demo_june:latest
+            docker push masthan9/demoimg999:latest
 
 
 
