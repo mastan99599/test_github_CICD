@@ -34,11 +34,6 @@ jobs:
 
           echo "Docker image built successfully!"
           - name: Login to Docker Hub
-        
-          run: |
-          echo "Attempting to login to Docker Hub..."
-          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          echo "Docker Hub login successful!"
 
       - name: Push the Docker image
         run: |
