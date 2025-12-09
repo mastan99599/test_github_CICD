@@ -39,3 +39,4 @@ jobs:
           # The image is already correctly tagged from the build step
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/demoimg999:latest
           echo "Docker image pushed successfully!"
+          
