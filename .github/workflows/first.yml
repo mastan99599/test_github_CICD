@@ -33,6 +33,14 @@ jobs:
           docker build . -f Dockerfile -t ${{ secrets.IMG_NAME }}/myapp:latest 
 
           echo "Docker image built successfully!"
+          - name: Login to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_LOGIN }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }} # Recommend using a Docker Hub Access Token
+          run: |
+          echo "Attempting to login to Docker Hub..."
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          echo "Docker Hub login successful!"
 
       - name: Push the Docker image
         run: |
