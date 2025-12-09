@@ -30,7 +30,7 @@ jobs:
           ls -la
           echo "Building Docker image..."
           # Corrected: Tag the image with the full Docker Hub path
-          docker build . -f Dockerfile -t ${{ secrets.IMG_NAME }}/:V1
+          docker build . -f Dockerfile -t ${{ secrets.IMG_NAME }}/:latest 
 
           echo "Docker image built successfully!"
 
