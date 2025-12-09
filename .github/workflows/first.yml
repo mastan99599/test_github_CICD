@@ -30,13 +30,14 @@ jobs:
           ls -la
           echo "Building Docker image..."
           # Corrected: Tag the image with the full Docker Hub path
-          docker build . -f Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/masthan9/dec:v1
+          docker build -f Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/masthan9/dec:v1.0
+
           echo "Docker image built successfully!"
 
       - name: Push the Docker image
         run: |
           echo "Pushing Docker image to Docker Hub..."
           # The image is already correctly tagged from the build step
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/masthan9/dec:v1
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/masthan9/dec:v1.0
           echo "Docker image pushed successfully!"
           
