@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "Pushing Docker image to Docker Hub..."
           # The image is already correctly tagged from the build step
-          #docker push ${{ secrets.DOCKERHUB_REPO }}/myapp:latest 
-           docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
+          docker push ${{ secrets.DOCKERHUB_REPO }}/myapp:latest 
+           #docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
           echo "Docker image pushed successfully!"
           
